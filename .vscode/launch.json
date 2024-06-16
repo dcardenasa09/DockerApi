@@ -1,0 +1,126 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Base.API",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/src/Base/Base.API/bin/Debug/net8.0/Base.API.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/src/Base/Base.API",
+            "stopAtEntry": false,
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+            },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            },
+            "sourceFileMap": {
+                "/Views": "${workspaceFolder}/Views"
+            }
+        },
+        {
+            "name": "Base Domain",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/src/Base/Base.Domain/bin/Debug/net8.0/Base.Domain.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/src/Base/Base.Domain",
+            "stopAtEntry": false,
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+            },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            },
+            "sourceFileMap": {
+                "/Views": "${workspaceFolder}/Views"
+            }
+        },
+        {
+            "name": "Base Infrastructure",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/src/Base/Base.Infrastructure/bin/Debug/net8.0/Base.Infrastructure.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/src/Base/Base.Infrastructure",
+            "stopAtEntry": false,
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+            },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            },
+            "sourceFileMap": {
+                "/Views": "${workspaceFolder}/Views"
+            }
+        },
+        {
+            "name": "Base UnitTest",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/src/Base/Base.UnitTest/bin/Debug/net8.0/Base.UnitTest.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/src/Base/Base.UnitTest",
+            "stopAtEntry": false,
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+            },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            },
+            "sourceFileMap": {
+                "/Views": "${workspaceFolder}/Views"
+            }
+        },
+        {
+            "name": "Shared Lib",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/src/Shared/Shared.Lib/bin/Debug/net8.0/Shared.Lib.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/src/Shared/Shared.Lib",
+            "stopAtEntry": false,
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+            },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            },
+            "sourceFileMap": {
+                "/Views": "${workspaceFolder}/Views"
+            }
+        },
+        {
+            "name": ".NET Core Attach",
+            "type": "coreclr",
+            "request": "attach"
+        },
+        {
+            "name": "Docker: .NET Core Attach (baseapi)",
+            "type": "coreclr",
+            "request": "attach",
+            "processId": "${command:pickRemoteProcess}",
+            "pipeTransport": {
+                "pipeProgram": "docker",
+                "pipeArgs": [ "exec", "-i", "baseapi", "sh", "-c" ],
+                "debuggerPath": "/remote_debugger/vsdbg",
+                "pipeCwd": "${workspaceFolder}",
+                "quoteArgs": false
+            },
+            "sourceFileMap": {
+                "/app": "${workspaceFolder}"
+            }
+        }
+    ]
+}
