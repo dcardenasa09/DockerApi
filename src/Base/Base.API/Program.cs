@@ -76,7 +76,7 @@ builder.Services.AddMediatR(Assembly.GetExecutingAssembly());
 // builder.Services.AddMediatR(x => x.RegisterServicesFromAssembly(typeof(Program).Assembly));
 
 builder.Services.AddDbContext<BaseDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
+    options.UseSqlServer(builder.Configuration.GetConnectionString("LocalConnection"))
 );
 
 builder.Services.AddControllers();
